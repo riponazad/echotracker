@@ -1,2 +1,1 @@
-# echotracker
-Point Tracking in Echocardiography.
+# EchoTracker: Advancing Myocardial Point Tracking in Echocardiography.
