@@ -28,44 +28,6 @@
 </head>
 <body onload="set_source(0);">
 
-<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-  <div class="navbar-menu">
-    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
-      <a class="navbar-item" href="https://deepmind.com">
-      <span class="icon">
-          <i class="fas fa-home"></i>
-      </span>
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          More Research
-        </a>
-        <div class="navbar-dropdown">
-          <a class="navbar-item" href="https://tapvid.github.io/">
-            TAP-Vid Dataset
-          </a>
-          <a class="navbar-item" href="https://robotap.github.io/">
-            RoboTAP
-          </a>
-          <a class="navbar-item" href="https://deepmind-tapir.github.io/blogpost.html">
-            TAPIR Blog Post
-          </a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</nav> -->
-
-
 <section class="hero">
   <div class="hero-body">
     <div class="container is-max-desktop">
@@ -154,13 +116,13 @@
   <div class="container is-max-desktop">
     <div id="results-carousel" class="carousel results-carousel">
       <div class="item">
-        <video poster="" id="sample1" autoplay controls muted loop playsinline width="100%" style="display: block; margin: 0 auto;">
+        <video poster="" id="sample1" autoplay controls muted loop playsinline width="80%" style="display: block; margin: 0 auto;">
           <source src="./static/videos/sample1.mp4"
                   type="video/mp4">
         </video>
       </div>
       <div class="item">
-        <video poster="" id="sample2" autoplay controls muted loop playsinline width="100%" style="display: block; margin: 0 auto;">
+        <video poster="" id="sample2" autoplay controls muted loop playsinline width="80%" style="display: block; margin: 0 auto;">
           <source src="./static/videos/sample2.mp4"
                   type="video/mp4">
         </video>
@@ -170,6 +132,24 @@
       <span class="dnerf">EchoTracker</span> accurately estimates trajectories given the query points on the myocardial ventricle wall.
     </h2>
   </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Tissue tracking in echocardiography is challenging due to the complex cardiac motion and the inherent nature of ultrasound acquisitions. Although optical flow methods are considered state-of-the-art (SOTA), they struggle with long-range tracking, noise occlusions, and drift throughout the cardiac cycle. Recently, novel learning-based point tracking techniques have been introduced to tackle some of these issues. In this paper, we build upon these techniques and introduce EchoTracker, a two-fold coarse-to-fine model that facilitates the tracking of queried points on a tissue surface across ultrasound image sequences. The architecture contains a preliminary coarse initialization of the trajectories, followed by reinforcement iterations based on fine-grained appearance changes. It is efficient, light, and can run on mid-range GPUs. Experiments demonstrate that the model outperforms SOTA methods, with an average position accuracy of 67% and a median trajectory error of 2.86 pixels. Furthermore, we show a relative improvement of 25% when using our model to calculate the global longitudinal strain (GLS) in a clinical test-retest dataset compared to other methods. This implies that learning-based point tracking can potentially improve performance and yield a higher diagnostic and prognostic value for clinical measurements than current techniques.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>  
 </section>
 
 
@@ -187,8 +167,8 @@
     <div class="columns is-centered">
       <div class="column is-8">
         <div class="content">
-          <p>
-            The website is under development and the source code is borrowed from <a href="https://github.com/deepmind-tapir/deepmind-tapir.github.io">TAPIR</a>.
+          <p style="text-align: center;">
+            The project page is still under development and the source code is borrowed from <a href="https://github.com/deepmind-tapir/deepmind-tapir.github.io">TAPIR</a>.
           </p>
         </div>
       </div>
