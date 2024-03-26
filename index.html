@@ -116,8 +116,13 @@
                   </a>
               </span>
             </div>
-
           </div>
+          <img src="./static/images/UltraTRacking.png"
+                class="interpolation-image"
+                alt="Point tracking in echocardiography."/>
+          <p>
+            An illustration of tracking queried points (highlighted in red) from the first frame throughout one heart cycle.
+          </p>
         </div>
       </div>
     </div>
@@ -126,6 +131,75 @@
 
 <section class="section">
   <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Tissue tracking in echocardiography is challenging due to the complex cardiac motion and the inherent nature of ultrasound acquisitions. Although optical flow methods are considered state-of-the-art (SOTA), they struggle with long-range tracking, noise occlusions, and drift throughout the cardiac cycle. Recently, novel learning-based point tracking techniques have been introduced to tackle some of these issues. In this paper, we build upon these techniques and introduce EchoTracker, a two-fold coarse-to-fine model that facilitates the tracking of queried points on a tissue surface across ultrasound image sequences. The architecture contains a preliminary coarse initialization of the trajectories, followed by reinforcement iterations based on fine-grained appearance changes. It is efficient, light, and can run on mid-range GPUs. Experiments demonstrate that the model outperforms SOTA methods, with an average position accuracy of 67% and a median trajectory error of 2.86 pixels. Furthermore, we show a relative improvement of 25% when using our model to calculate the global longitudinal strain (GLS) in a clinical test-retest dataset compared to other methods. This implies that learning-based point tracking can potentially improve performance and yield a higher diagnostic and prognostic value for clinical measurements than current techniques.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>  
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">EchoTracker Performance</h2>
+    <h3 class="title is-4">Technical Results</h3>
+    <div class="content">
+      <table>
+        <tr>
+          <th><p style="text-align:left">Method</p></th>
+          <th><p style="text-align:center">< &#948;<sup>1</sup> &#8593;</p></th>
+          <th><p style="text-align:center">< &#948;<sup>2</sup> &#8593;</p></th>
+          <th><p style="text-align:center">< &#948;<sup>4</sup> &#8593;</p></th>
+          <th><p style="text-align:center">< &#948;<sup>8</sup> &#8593;</p></th>
+          <th><p style="text-align:center">< &#948;<sup>16</sup> &#8593;</p></th>
+          <th><p style="text-align:center">< &#948;<sup>avg</sup> &#8593;</p></th>
+          <th><p style="text-align:center">MTE &#8595;</p></th>
+          <th><p style="text-align:center">AIT(s) &#8595;</p></th>
+        </tr>
+        <tr>
+          <td style="border-bottom: none;"><p style="text-align:left">PIPs++</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">15</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">36</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">70</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">94</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>100</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">63</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">3.28</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">0.42</p></td>
+        </tr>
+        <tr>
+          <td style="border-bottom: none;"><p style="text-align:left">CoTracker</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>19</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">42</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">74</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">95</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>100</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">66</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">3.02</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">1.34</p></td>
+        </tr>
+        <tr>
+          <td style="border-bottom: none;"><p style="text-align:left">EchoTracker (ours)</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>19</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>43</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>76</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>96</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>100</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>67</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>2.86</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>0.24</b></p></td>
+        </tr>
+      </table>
+      <p class="subtitle has-text-centered">Performance on a test-retest dataset compared to state-of-the-art methods.</p>
+    </div>
+
     <div id="results-carousel" class="carousel results-carousel">
       <div class="item">
         <video poster="" id="sample1" autoplay controls muted loop playsinline width="80%" style="display: block; margin: 0 auto;">
@@ -143,25 +217,83 @@
     <h2 class="subtitle has-text-centered">
       <span class="dnerf">EchoTracker</span> accurately estimates trajectories given the query points on the myocardial ventricle wall.
     </h2>
-  </div>
-</section>
 
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Tissue tracking in echocardiography is challenging due to the complex cardiac motion and the inherent nature of ultrasound acquisitions. Although optical flow methods are considered state-of-the-art (SOTA), they struggle with long-range tracking, noise occlusions, and drift throughout the cardiac cycle. Recently, novel learning-based point tracking techniques have been introduced to tackle some of these issues. In this paper, we build upon these techniques and introduce EchoTracker, a two-fold coarse-to-fine model that facilitates the tracking of queried points on a tissue surface across ultrasound image sequences. The architecture contains a preliminary coarse initialization of the trajectories, followed by reinforcement iterations based on fine-grained appearance changes. It is efficient, light, and can run on mid-range GPUs. Experiments demonstrate that the model outperforms SOTA methods, with an average position accuracy of 67% and a median trajectory error of 2.86 pixels. Furthermore, we show a relative improvement of 25% when using our model to calculate the global longitudinal strain (GLS) in a clinical test-retest dataset compared to other methods. This implies that learning-based point tracking can potentially improve performance and yield a higher diagnostic and prognostic value for clinical measurements than current techniques.
-          </p>
-        </div>
-      </div>
+    <div class="content">
+      <h3 class="title is-4">Clinical Results</h3>
+      <table>
+        <tr>
+          <th rowspan="2"><p style="text-align:left">Method</p></th>
+          <th colspan="3"><p style="text-align:center">Reference</p></th>
+          <th colspan="3"><p style="text-align:center">Test-retest</p></th>
+        </tr>
+        <tr>
+          <th ><p style="text-align:center">&#956;</p></th>
+          <th ><p style="text-align:center">&#963;</p></th>
+          <th ><p style="text-align:center">MAD</p></th>
+          <th ><p style="text-align:center">&#956;</p></th>
+          <th ><p style="text-align:center">&#963;</p></th>
+          <th ><p style="text-align:center">MAD</p></th></tr>
+        <tr>
+          <td style="border-bottom: none;"><p style="text-align:left">c-PWC-Net-60A</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">1.85</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">2.73</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">N/A</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"></p></td>
+        </tr>
+        <tr>
+          <td style="border-bottom: none;"><p style="text-align:left">us2ai</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">0.68</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">2.52</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">2.0</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"></p></td>
+        </tr>
+        <tr>
+          <td style="border-bottom: none;"><p style="text-align:left">EchoPWCNet</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">-1.4</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">1.9</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">1.8</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>0.0</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">1.9</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">1.6</p></td>
+        </tr>
+        <tr>
+          <td colspan="7" style="border-bottom: none;"></td>
+        </tr>
+        <tr>
+          <td style="border-bottom: none;"><p style="text-align:left">PIPs++</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">-1.21</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">1.95</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">1.76</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">0.11</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">1.62</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">1.28</p></td>
+        </tr>
+        <tr>
+          <td style="border-bottom: none;"><p style="text-align:left">CoTracker</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">-0.82</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">2.40</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">1.98</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">-0.11</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">2.47</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">1.96</p></td>
+        </tr>
+        <tr>
+          <td style="border-bottom: none;"><p style="text-align:left">EchoTracker (ours)</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>-0.13</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>1.78</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>1.36</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center">-0.13</p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>1.55</b></p></td>
+          <td style="border-bottom: none;"><p style="text-align:center"><b>1.21</b></p></td>
+        </tr>
+      </table>
+      <p style="text-align: center;">Clinical results for GLS calculations compared to reference measurements and in a test-retest scenario.</p>
     </div>
-    <!--/ Abstract. -->
-  </div>  
+  </div>
 </section>
 
 
