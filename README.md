@@ -22,6 +22,6 @@ Now run demos:
     - EchoTracker will estimate the trajectories in no time and then visualize video.
     - See the video.
 
-![output.gif](https://github.com/riponazad/echotracker/blob/main/assets/output.gif)
+    ![output.gif](https://github.com/riponazad/echotracker/blob/main/assets/output.gif)
 
 
