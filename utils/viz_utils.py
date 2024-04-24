@@ -23,7 +23,7 @@ from absl import logging
 import matplotlib.pyplot as plt
 import mediapy as media
 import numpy as np
-
+  
 
 # Generate random colormaps for visualizing different points.
 def get_colors(num_colors: int) -> List[Tuple[int, int, int]]:

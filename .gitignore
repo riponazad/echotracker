@@ -9,6 +9,7 @@ __pycache__/
 #file types
 #*.mp4
 *.pt
+*.pth
 
 # Distribution / packaging
 .Python

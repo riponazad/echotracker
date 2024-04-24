@@ -1,7 +1,5 @@
 import numpy as np
 import torch
-import time
-from tqdm import tqdm
 import torch.nn.functional as F
 from utils import basic
 
@@ -40,17 +38,6 @@ def huber_loss(heat_maps_g, heat_maps_e, delta=0.5):
             loss += F.huber_loss(heat_maps_g[i,s], heat_maps_e[i,s], delta=delta)
 
     return loss * 10
-
-
-def mse_loss(rgbs, trajs_g, heat_maps_e, alpha=100):
-    B, S, H, W = heat_maps_e.shape
-    heat_maps_g = generate_heatmaps(rgbs, trajs_g)
-    #print(heat_maps_g.shape, heat_maps_e.shape)
-    loss = 0.0
-    for i in range(heat_maps_e.shape[0]):
-        for s in range(heat_maps_e.shape[1]):
-            loss += F.mse_loss(heat_maps_g[i,s], heat_maps_e[i,s])
-    return loss
 
 
 

@@ -9,16 +9,12 @@ The proposed EchoTracker model for ultrasound medical imaging.
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-
-
 from model.blocks import (
     CorrBlock, BasicEncoder, DeltaBlock, DeltaBlock_temp
 )
 from utils.samp import bilinear_sample2d
 from utils.trainer import sequence_loss
-import configs
-from utils.utils_ import get_transform
-import random
+
 torch.manual_seed(0)
 
 
