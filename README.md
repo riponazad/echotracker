@@ -20,6 +20,8 @@ Now run demos:
     - The first frame will appear.
     - Select query points (max 20) on any physical space and press `q` again. Of course you can increase the maximum number of points by editing demp2.py file.
     - EchoTracker will estimate the trajectories in no time and then visualize video.
+    - See the video.
 
+![output.gif](https://github.com/riponazad/echotracker/blob/main/assets/output.gif)
 
 
