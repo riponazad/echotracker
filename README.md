@@ -1,5 +1,7 @@
 # EchoTracker: Advancing Myocardial Point Tracking in Echocardiography.
 
+![UltraTRacking.png](https://github.com/riponazad/echotracker/blob/main/assets/UltraTRacking.png)
+
 (Full repo with EchoTracker and a sample will be uploaded soon.)
 
 ## Requirements
