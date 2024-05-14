@@ -148,6 +148,18 @@
 
 <section class="section">
   <div class="container is-max-desktop">
+    <!-- Arch. -->
+    <h2 class="title is-3">Architecture</h2>
+    <div class="content">
+      <img src="./assets/EchoTracker.png"
+             class="interpolation-image"
+             alt="EchoTracker architecture."/>
+      <div class="content has-text-justified">
+        <p>
+          EchoTracker includes two stages as shown in the figure, &ldquo;Initialization&ldquo; and &ldquo;Iterative reinforcement&ldquo;. The approach follows a two-fold coarse-to-fine strategy inspired by <a href="https://deepmind-tapir.github.io/">TAPIR</a>. In the initial stage, trajectories are initialized based on the coarse resolution of the feature maps using a coarse network. Subsequently, in the second stage, the trajectories are iteratively refined using fine-grained feature maps by a fine network, thus constituting a two-fold coarse-to-fine approach. This technique not only speeds up computation but also prevents the loss of important information due to downsampling. Although the networks in both stages estimate trajectories independently, they exploit point locations from the first frame to maintain spatial correlation and estimate coherent trajectories. Additionally, frame flow, representing the difference between consecutive frames, is naively passed to the model to make it aware of global appearance changes. The model can run on ultrasound sequences of any length and with any number of query points, depending on available memory.
+        </p>
+      </div>
+    </div> 
     <h2 class="title is-3">EchoTracker Performance</h2>
     <h3 class="title is-4">Technical Results</h3>
     <div class="content">
@@ -296,6 +308,18 @@
   </div>
 </section>
 
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Citation\BibTeX</h2>
+    <p>Please cite our work if you utilize the paper/code/project in anyway.</p>
+    <pre><code>@InProceedings{azad2024echo,
+  author    = {Azad, Md Abulkalam and Chernyshov, Artem and Nyberg, John and Tveten, Ingrid and Lovstakken, Lasse and Dalen, Havard and Grenne, Bjørnar and {\O}stvik, Andreas},
+  title     = {EchoTracker: Advancing Myocardial Point Tracking in Echocardiography},
+  journal   = {MICCAI2024},
+  year      = {2024}
+}</code></pre>
+  </div>
+</section>
 
 <footer class="footer">
   <div class="container">
