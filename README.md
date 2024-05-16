@@ -2,7 +2,7 @@
 
 This is the official code repository for the EchoTracker model provisionally (early) accepted (top 11%) to MICCAI2024.
 
-**[[Paper]()] [[Project Page](https://riponazad.github.io/echotracker/)]**
+**[[Paper](https://arxiv.org/abs/2405.08587)] [[Project Page](https://riponazad.github.io/echotracker/)]**
 
 ![UltraTRacking.png](https://github.com/riponazad/echotracker/blob/main/assets/UltraTRacking.png)
 
