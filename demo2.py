@@ -33,7 +33,7 @@ def on_click(event):
 if __name__ == '__main__':
     model = EchoTracker(device_ids=[0])
     model.load(path="model/weights/", eval=True)
-    video_path = "data/input.mp4"
+    video_path = "data/output_video_alax.mp4"
 
     s = 400
     #Show the example video
@@ -76,6 +76,7 @@ if __name__ == '__main__':
     visibs_e = torch.ones((trajs_e.shape[:-1]))
     
     pd_frames = paint_vid(frames=frames.squeeze().numpy(), points=trajs_e.squeeze().numpy(), visibs=visibs_e.squeeze().numpy(), gray=True)
-    media.write_video("results/output.mp4", pd_frames, fps=20)
-    print(f'The example video is saved at "results/output.mp4"')
-    play_video("results/output.mp4", target_size=(s+40, s))
+    out_vid = "output6.mp4"
+    media.write_video(f"results/{out_vid}", pd_frames, fps=20)
+    print(f'The example video is saved at "results/{out_vid}"')
+    play_video(f"results/{out_vid}", target_size=(s+40, s))

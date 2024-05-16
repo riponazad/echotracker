@@ -45,7 +45,7 @@ if __name__ == '__main__':
     cat_frames = np.concatenate((gt_frames, pd_frames), axis=2)
     media.write_video("results/output.mp4", cat_frames, fps=20)
 
-    print(f'The output video is saved at "results/output.mp4"')
+    print(f'The output video is saved at "results/output6.mp4"')
 
     '''Evaluation'''
     #print(points_0.shape, trajs_g.shape, trajs_e.shape, visibs_g.shape)
