@@ -17,7 +17,7 @@ from model.net import EchoTracker
 
 if __name__ == '__main__':
     model = EchoTracker(device_ids=[0])
-    model.load(path="model/weights", eval=True)
+    model.load(path="model/weights/echotracker", eval=True)
     getTrainParams(model.model)
     
     # Specify the file path for the pickle file
@@ -32,9 +32,9 @@ if __name__ == '__main__':
     frames, trajs_g, visibs_g = ds_list['frames'][0], ds_list['trajs'][0], ds_list['visibility'][0]
     points_0 = trajs_g[:,:,0] # taking points at frame 0
 
-    print(frames.shape, points_0.shape, trajs_g.shape, visibs_g.shape)
-    print(points_0.min(), points_0.max())
-    raise KeyboardInterrupt
+    # print(frames.shape, points_0.shape, trajs_g.shape, visibs_g.shape)
+    # print(points_0.min(), points_0.max())
+    # raise KeyboardInterrupt
     
     gt_frames = paint_vid(frames=frames.squeeze().numpy(), points=trajs_g.squeeze().numpy(), visibs=visibs_g.squeeze().numpy(), gray=True)
     

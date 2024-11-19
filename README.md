@@ -1,11 +1,25 @@
 # EchoTracker: Advancing Myocardial Point Tracking in Echocardiography
 
-This is the official code repository for the EchoTracker model provisionally (early) accepted (top 11%) to MICCAI2024.
+This is the official code repository for the EchoTracker model (accepted within the top 11% of MICCAI2024).
 
-**[[Paper](https://arxiv.org/abs/2405.08587)] [[Project Page](https://riponazad.github.io/echotracker/)]**
+**[[Paper](https://link.springer.com/chapter/10.1007/978-3-031-72083-3_60)] [[Project Page](https://riponazad.github.io/echotracker/)] [[ArXiv(submitted version)](https://arxiv.org/abs/2405.08587)]**
 
 ![UltraTRacking.png](https://github.com/riponazad/echotracker/blob/main/assets/UltraTRacking.png)
 
+## Updates
+- (19.11.24): Fine-tuning and inference codes for TAPIR is added. Hence, the licensing got updated.
+- (19.11.24): Now the interactive demo (demo2) visualizes tracking of both EchoTracker and TAPIR together.
+
+---
+
+## Table of Contents
+- [Requirement](#required-steps)
+- [Demos](#run-demos)
+- [Train/Evaluation](#trainevaluation)
+- [Citation](#citation)
+- [License](#license-summary)
+
+---
 
 ## Required steps
 1. Clone the project: `git clone https://github.com/riponazad/echotracker.git`
@@ -31,7 +45,49 @@ Now run demos:
 
 
 ## Train/Evaluation
-Since we are unable to publish the datasets, we are leaving this part to you. However, we provided training and inference code as class methods (check model/net.py) so that you can easily train/finetune/evaluate EchoTracker on your datasets.
+### EchoTracker
+Since we are unable to publish the datasets, we are leaving this part mostly to you. However, we provided training and inference code as class methods [def train](https://github.com/riponazad/echotracker/blob/main/model/net.py) so that you can train/finetune/evaluate EchoTracker on your datasets as simple as just the following lines.
+
+```
+from model.net import EchoTracker
+B=1, # batchsize 
+S=24, # seqlen
+#you should have your own load_datasets() method before executing the following line    
+dataloaders, dataset_size = load_datasets(B=B, S=S, debug=debug, use_aug=True)
+
+model = EchoTracker(device_ids=[0])
+#model.load(path=configs.WEIGHTS_PATH.echotracker, eval=False)  #uncomment to fine-tune the model instead training
+model.load(eval=False) #load the model to train
+model.train(
+        dataloaders=dataloaders, 
+        dataset_size=dataset_size, 
+        log_dir=configs.LOG_PATH.echotracker, 
+        ckpt_path=configs.SAVE_PATH.echotracker,
+        epochs=100
+)
+``` 
+
+### TAPIR
+Similarly, you can fine-tune/evaluate with TAPIR.
+
+```
+from model.net import TAPIR
+B=1, # batchsize 
+S=24, # seqlen
+#you should have your own load_datasets() method before executing the following line    
+dataloaders, dataset_size = load_datasets(B=B, S=S, debug=debug, use_aug=True)
+
+model = TAPIR(pyramid_level=0)
+#model.load(path=configs.WEIGHTS_PATH.tapir, eval=False)  #uncomment to fine-tune the model instead training
+model.load(eval=False) #load the model to train
+model.finetune(
+        dataloaders=dataloaders, 
+        dataset_size=dataset_size, 
+        log_dir=configs.LOG_PATH.tapir, 
+        ckpt_path=configs.SAVE_PATH.tapir,
+        epochs=100
+)
+``` 
 
 
 ## Citation
@@ -40,11 +96,46 @@ If you use this code for your research, please cite our paper:
 
 Bibtex:
 ```
-@inproceedings{azad2024echo,
- author = {Azad, Md Abulkalam and Chernyshov, Artem and Nyberg, John and Tveten, Ingrid and Lovstakken, Lasse and Dalen, Havard and Grenne, Bjørnar and {\O}stvik, Andreas},
- title = {EchoTracker: Advancing Myocardial Point Tracking in Echocardiography},
- booktitle = {MICCAI2024},
- year = {2024}
+@InProceedings{azad2024echo,
+author="Azad, Md Abulkalam
+and Chernyshov, Artem
+and Nyberg, John
+and Tveten, Ingrid
+and Lovstakken, Lasse
+and Dalen, H{\aa}vard
+and Grenne, Bj{\o}rnar
+and {\O}stvik, Andreas",
+title="EchoTracker: Advancing Myocardial Point Tracking in Echocardiography",
+booktitle="Medical Image Computing and Computer Assisted Intervention -- MICCAI 2024",
+year="2024",
+volume="IV",
+publisher="Springer Nature Switzerland",
+pages="645--655"
 }
 ```
 
+
+## License Summary
+
+This project is licensed under a dual-license structure as some codes are directly adopted from third-party repositories.
+
+- **EchoTracker**: MIT License
+- **Third-Party Code**: Apache License 2.0
+
+### MIT License
+
+The MIT License applies to all original code written for this repository. For full details, see the `LICENSE` file.
+
+### Apache License 2.0 (Third-Party Code)
+
+This project includes code from third-party repository licensed under the Apache License 2.0. Specifically:
+- [TAPIR](https://github.com/google-deepmind/tapnet)
+
+See the `LICENSE` file for the full Apache License 2.0 terms also on their repository.
+
+### How to Comply
+
+When using this project:
+- You are free to use, modify, and distribute the code under the respective licenses.
+- Retain the MIT license notice for original contributions.
+- Retain the Apache 2.0 license notice and adhere to its requirements for third-party components.
