@@ -9,6 +9,7 @@ To run the proposed models as examples.
 from utils.utils_ import paint_vid, play_video
 from utils import viz_utils
 import numpy as np
+import sys
 import mediapy as media
 import cv2 as cv
 from PIL import Image
@@ -31,11 +32,12 @@ def on_click(event):
             
 
 if __name__ == '__main__':
+    video_file_name = sys.argv[1]
     model = EchoTracker(device_ids=[0])
     model.load(path="model/weights/", eval=True)
-    video_path = "data/output_video_alax.mp4"
+    video_path = f"data/{video_file_name}.mp4"
 
-    s = 400
+    s = 600
     #Show the example video
     frames = play_video(video_path, target_size=(s+40, s))
     sampling_frame = 0 #points will be selected only from the first frame
@@ -44,7 +46,7 @@ if __name__ == '__main__':
     # Generate a colormap with 20 points, no need to change unless select more than 20 points
     colormap = viz_utils.get_colors(20)
 
-    fig, ax = plt.subplots(figsize=(8, 5))
+    fig, ax = plt.subplots(figsize=(10, 6))
     #print(frames[sampling_frame].shape)
     ax.imshow(Image.fromarray(cv.cvtColor(frames[sampling_frame], cv.COLOR_GRAY2RGB)))
     ax.axis('off')
@@ -72,11 +74,11 @@ if __name__ == '__main__':
     #print(type(query_points), query_points.shape)
 
      
-    trajs_e = model.infer(frames, query_points)
+    trajs_e = model.infer(frames, query_points, (256, 256))
     visibs_e = torch.ones((trajs_e.shape[:-1]))
     
     pd_frames = paint_vid(frames=frames.squeeze().numpy(), points=trajs_e.squeeze().numpy(), visibs=visibs_e.squeeze().numpy(), gray=True)
-    out_vid = "output6.mp4"
+    out_vid = "output.mp4"
     media.write_video(f"results/{out_vid}", pd_frames, fps=20)
     print(f'The example video is saved at "results/{out_vid}"')
     play_video(f"results/{out_vid}", target_size=(s+40, s))
