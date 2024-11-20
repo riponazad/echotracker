@@ -31,7 +31,8 @@ This is the official code repository for the EchoTracker model (accepted within 
 
 Here you go!!!!
 ## Run demos
-First, download the [checkpoint](https://drive.google.com/file/d/1FJmNlfE5lNPSpBbtnc3KBOgC7cp6DCpl/view?usp=drive_link) and ensure before running, the model checkpoint(model-000000000.pth file) is placed inside the 'model/wights/echotracker' directory.
+First, download the [checkpoint](https://drive.google.com/file/d/1FJmNlfE5lNPSpBbtnc3KBOgC7cp6DCpl/view?usp=drive_link) and ensure before running, the model checkpoint (model-000000000.pth file) is placed inside the 'model/wights/echotracker' directory.
+
 For the fine-tuned TAPIR, download the [checkpoint](https://drive.google.com/file/d/1mkj_8MQo0ntupAt3IBZ6XtjXUuDKMMDc/view?usp=drive_link)(model-000000099.pth file) and place it inside the 'model/wights/tapir/finetuned' directory.
 Now run demos:
 1. `python demo1.py`: It will load the EchoTracker model and the provided ultrasound sample data, estimate the trajectories for the given query points, and print performance metrics.
