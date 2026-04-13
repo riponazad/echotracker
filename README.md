@@ -81,6 +81,12 @@ Download each checkpoint and place the file in the corresponding directory befor
 | EchoTracker | [`model-000000000.pth`](https://drive.google.com/file/d/1FJmNlfE5lNPSpBbtnc3KBOgC7cp6DCpl/view?usp=drive_link) | `model/weights/echotracker/` |
 | TAPIR (fine-tuned) | [`model-000000099.pth`](https://drive.google.com/file/d/1mkj_8MQo0ntupAt3IBZ6XtjXUuDKMMDc/view?usp=drive_link) | `model/weights/tapir/finetuned/` |
 
+> **Note on the Hugging Face Demo weights:** The EchoTracker model served in the [🤗 HF Demo](https://huggingface.co/spaces/riponazad/echotracker) uses an **updated checkpoint** from a follow-up work:
+> [*Taming Modern Point Tracking for Speckle Tracking Echocardiography via Impartial Motion*](https://ieeexplore.ieee.org/document/11374398) — ICCV 2025 Workshop &nbsp;·&nbsp; [[arXiv](https://arxiv.org/abs/2507.10127)]
+>
+> This version achieves best performance when query points are selected from the frame located at approximately **72% of the video's time dimension** — corresponding to **diastasis** (the quiescent slow-filling phase between the E-wave and A-wave) in a full ED-to-ED cardiac cycle (e.g. frame 72 of a 100-frame sequence).
+> If you use this model, please also cite that paper — see the [Citation](#citation) section.
+
 ---
 
 ## Run Demos
@@ -182,7 +188,7 @@ model.finetune(
 
 ## Citation
 
-If you find this work useful, please cite our paper:
+If you use this code or the EchoTracker model (MICCAI 2024), please cite:
 
 ```bibtex
 @InProceedings{azad2024echo,
@@ -195,6 +201,20 @@ If you find this work useful, please cite our paper:
   volume    = {IV},
   publisher = {Springer Nature Switzerland},
   pages     = {645--655},
+}
+```
+
+If you use the updated model weights available in the [🤗 Hugging Face Demo](https://huggingface.co/spaces/riponazad/echotracker), please additionally cite:
+
+```bibtex
+@InProceedings{Azad_2025_ICCV,
+  author    = {Azad, Md Abulkalam and Nyberg, John and Dalen, H{\aa}vard
+               and Grenne, Bj{\o}rnar and Lovstakken, Lasse and {\O}stvik, Andreas},
+  title     = {Taming Modern Point Tracking for Speckle Tracking Echocardiography via Impartial Motion},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+  month     = {October},
+  year      = {2025},
+  pages     = {1115--1124},
 }
 ```
 
