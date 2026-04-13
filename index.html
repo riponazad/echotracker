@@ -115,6 +115,15 @@
                   <span>Code</span>
                   </a>
               </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/spaces/riponazad/echotracker"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      🤗
+                  </span>
+                  <span>HF Demo</span>
+                  </a>
+              </span>
             </div>
           </div>
           <img src="./static/images/UltraTRacking.png"
@@ -352,6 +361,31 @@
       </table>
       <p class="subtitle has-text-centered">Clinical results for GLS calculations compared to reference measurements and in a test-retest scenario.</p>
     </div>
+    <!-- Updated Model Notice -->
+    <div class="columns is-centered" style="margin-top: 40px;">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Updated Model &amp; Follow-up Work</h2>
+        <div class="content has-text-justified">
+          <article class="message is-warning">
+            <div class="message-body">
+              <p>
+                The <a href="https://huggingface.co/spaces/riponazad/echotracker"><strong>🤗 Hugging Face Demo</strong></a> uses an <strong>updated EchoTracker checkpoint</strong> from our follow-up work:
+              </p>
+              <p>
+                <a href="https://ieeexplore.ieee.org/document/11374398"><strong>Taming Modern Point Tracking for Speckle Tracking Echocardiography via Impartial Motion</strong></a>
+                &nbsp;—&nbsp; ICCV 2025 Workshop &nbsp;·&nbsp; <a href="https://arxiv.org/abs/2507.10127">arXiv</a>
+              </p>
+              <p>
+                This version achieves best performance when query points are selected from the frame at approximately <strong>72% of the video's time dimension</strong>, corresponding to <strong>diastasis</strong> — the quiescent slow-filling phase between the E-wave and A-wave in a full ED-to-ED cardiac cycle.
+              </p>
+              <p>If you use this updated model, please cite the follow-up paper (see <a href="#BibTeX">Citation</a>).</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+    <!-- / Updated Model Notice -->
+
     <!-- Concurrent Work. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
@@ -382,24 +416,29 @@
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
-    <h2 class="title">Citation\BibTeX</h2>
-    <p>Please cite our work if you utilize the paper/code/project in anyway.</p>
+    <h2 class="title">Citation / BibTeX</h2>
+    <p>If you use this code or the EchoTracker model (MICCAI 2024), please cite:</p>
     <pre><code>@InProceedings{azad2024echo,
-      author="Azad, Md Abulkalam
-      and Chernyshov, Artem
-      and Nyberg, John
-      and Tveten, Ingrid
-      and Lovstakken, Lasse
-      and Dalen, H{\aa}vard
-      and Grenne, Bj{\o}rnar
-      and {\O}stvik, Andreas",
-      title="EchoTracker: Advancing Myocardial Point Tracking in Echocardiography",
-      booktitle="Medical Image Computing and Computer Assisted Intervention -- MICCAI 2024",
-      year="2024",
-      volume="IV",
-      publisher="Springer Nature Switzerland",
-      pages="645--655"
-      }</code></pre>
+  author    = {Azad, Md Abulkalam and Chernyshov, Artem and Nyberg, John
+               and Tveten, Ingrid and Lovstakken, Lasse and Dalen, H{\aa}vard
+               and Grenne, Bj{\o}rnar and {\O}stvik, Andreas},
+  title     = {EchoTracker: Advancing Myocardial Point Tracking in Echocardiography},
+  booktitle = {Medical Image Computing and Computer Assisted Intervention -- MICCAI 2024},
+  year      = {2024},
+  volume    = {IV},
+  publisher = {Springer Nature Switzerland},
+  pages     = {645--655},
+}</code></pre>
+    <p>If you use the updated model weights available in the <a href="https://huggingface.co/spaces/riponazad/echotracker">🤗 Hugging Face Demo</a>, please additionally cite:</p>
+    <pre><code>@InProceedings{Azad_2025_ICCV,
+  author    = {Azad, Md Abulkalam and Nyberg, John and Dalen, H{\aa}vard
+               and Grenne, Bj{\o}rnar and Lovstakken, Lasse and {\O}stvik, Andreas},
+  title     = {Taming Modern Point Tracking for Speckle Tracking Echocardiography via Impartial Motion},
+  booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+  month     = {October},
+  year      = {2025},
+  pages     = {1115--1124},
+}</code></pre>
   </div>
 </section>
 
@@ -407,10 +446,10 @@
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link"
-         href="">
+         href="https://link.springer.com/chapter/10.1007/978-3-031-72083-3_60">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/riponazad/echotracker" class="external-link">
         <i class="fab fa-github"></i>
       </a>
     </div>
