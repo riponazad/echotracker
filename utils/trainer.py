@@ -17,7 +17,7 @@ def sequence_loss(flow_preds, flow_gt, vis, valids, gamma=0.8):
     flow_loss = 0.0
     for i in range(n_predictions):
         i_weight = gamma**(n_predictions - i - 1)
-        flow_pred = flow_preds[i]
+        flow_pred = flow_preds[i].permute(0, 2, 1, 3)
         i_loss = (flow_pred - flow_gt).abs() # B,S,N,2
         i_loss = torch.mean(i_loss, dim=3) # B,S,N
         #flow_loss += i_weight * basic.reduce_masked_mean(i_loss, valids)

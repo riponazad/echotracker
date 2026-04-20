@@ -323,20 +323,21 @@ class TAPIR():
                         rgbs = rgbs.float().to(self.device) # B, S, H, W, C
                         rgbs = (2 * (rgbs / 255.0) - 1.0) # normalizing [-1 1]
 
-                        trajs_g = trajs_g.permute(0, 2, 1, 3).to(self.device)
-                        valids = visibs_g.permute(0, 2, 1).to(self.device) #B, S, N
+                        trajs_g = trajs_g.permute(0, 2, 1, 3).to(self.device) #B, N, S, 2 format:(x,y)
+                        valids = visibs_g.permute(0, 2, 1).to(self.device) #B, N, S
                         B, S, H, W, C = rgbs.shape
                         trajs_g[...,0] *= W - 1
                         trajs_g[...,1] *= H - 1
                         _, N, _, _ = trajs_g.shape
 
-                        points_0 = trajs_g[:,0,:,:] # taking all points from frame 0
-                        # from (x, y) to (t, x, y)
+                        points_0_xy = trajs_g[:,:,0,:] #B, N, 2 taking all points from frame 0
+                        # from (x, y) to (t, y, x)
+                        points_0 = points_0_xy[:,:,[1,0]] #format:(y,x)
                         # preparing the time dimension to be concatenated
                         #points_0 = points_0.cpu().numpy()
                         time_dim = torch.zeros((points_0.shape[0], points_0.shape[1], 1)).to(self.device)
                         # prepending a column to be -> (B, N, 3)
-                        points_0 = torch.concatenate((time_dim, points_0), axis=-1)
+                        points_0 = torch.concatenate((time_dim, points_0), axis=-1) #format:(t, y, x)
 
                         if phase == 'train':
                             self.model.train()  # Set model to training mode
@@ -350,16 +351,19 @@ class TAPIR():
                                 outs, loss = self.model(video=rgbs, query_points=points_0, 
                                     points_gt=trajs_g, visibs_gt=valids)
                         
-                        trajs_e = outs['tracks']
+                        trajs_e = outs['tracks'] #B, N, S, 2 format:(x,y)
+                        occlusions = outs['occlusion']
+                        expected_dist = outs['expected_dist']
+                        visibs_e = (1 - F.sigmoid(occlusions)) * (1 - F.sigmoid(expected_dist)) > 0.5
                         trajs_e[...,0] /= W - 1
                         trajs_e[...,1] /= H - 1
                         trajs_g[...,0] /= W - 1
                         trajs_g[...,1] /= H - 1
-                        points_0[...,0] /= W - 1
-                        points_0[...,1] /= H - 1
+                        points_0_xy[...,0] /= W - 1
+                        points_0_xy[...,1] /= H - 1
                         #print(points_0.shape, trajs_g.shape, trajs_e.shape, visibs_g.shape)
-                        outputs = evaluate.compute_metrics(points_0.cpu().numpy(), trajs_g.permute(0, 2, 1, 3).cpu().numpy(), 
-                                visibs_g.cpu().numpy(), trajs_e.detach().cpu().numpy(), visibs_g.cpu().numpy())
+                        outputs = evaluate.compute_metrics(points_0_xy.cpu().numpy(), trajs_g.cpu().numpy(), 
+                                valids.cpu().numpy(), trajs_e.detach().cpu().numpy(), visibs_e.cpu().numpy())
                         for key, value in outputs.items():
                             metrics_b[key] += value
                         
