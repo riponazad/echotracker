@@ -1,6 +1,136 @@
-MIT License
+EchoTracker License
+====================
+
+This project uses a dual-license structure.
+
+1. The original EchoTracker code AND the original EchoTracker model weights
+   / checkpoints produced by this project (everything in this repository
+   except the third-party components listed below) are licensed for
+   NONCOMMERCIAL USE ONLY under the Creative Commons Attribution-
+   NonCommercial 4.0 International License (CC BY-NC 4.0), summarized and
+   linked below. This includes any fine-tuned checkpoints hosted or
+   distributed from this repository (e.g., the fine-tuned TAPIR checkpoint
+   produced by this project), even where the underlying model architecture
+   or base pretrained weights originate from a third party.
+
+   COMMERCIAL USE IS NOT PERMITTED UNDER THIS LICENSE. Any use of this
+   software or these model weights, or works derived from them, for
+   commercial purposes requires a separate commercial license agreement.
+   Commercial licensing is handled by NTNU Technology Transfer AS (NTNU
+   TTO, https://ntnuto.no). To start that process, please contact NTNU TTO
+   directly, or reach out to Md Abulkalam Azad (md.a.azad@ntnu.no) or
+   Andreas Østvik (andreas.ostvik@ntnu.no), who will coordinate with NTNU
+   TTO on your behalf.
+
+2. Certain components are derived from or integrate with TAPIR
+   (https://github.com/google-deepmind/tapnet) and remain subject to the
+   Apache License, Version 2.0, as reproduced further below.
+
+3. Certain utility and model files are adapted from PIPs
+   (https://github.com/aharley/pips, MIT License) and, in part, from RAFT
+   (https://github.com/princeton-vl/RAFT, BSD 3-Clause License), and remain
+   subject to those licenses as reproduced further below. This includes
+   `model/blocks.py`, `utils/basic.py`, `utils/samp.py`,
+   `utils/saverloader.py`, and `utils/trainer.py`.
+
+4. This repository builds on or references other third-party models (for
+   example, the base pretrained TAPIR model). Those models' own code and
+   weights are NOT covered by the CC BY-NC 4.0 license above and remain
+   subject to their original authors' license terms. Please check the
+   original source of any such model for its licensing before use.
+
+---
+
+Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+=============================================================================
 
 Copyright (c) 2024 Md Abulkalam Azad
+
+This work is licensed under the Creative Commons Attribution-NonCommercial
+4.0 International License. To view a copy of this license, visit:
+
+    https://creativecommons.org/licenses/by-nc/4.0/
+
+or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042,
+USA. The full legal code of this license is available at:
+
+    https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+Summary of terms (this summary is not a substitute for the full license
+text linked above):
+
+You are free to:
+
+  - Share — copy and redistribute the material in any medium or format.
+  - Adapt — remix, transform, and build upon the material.
+
+  The licensor cannot revoke these freedoms as long as you follow the
+  license terms.
+
+Under the following terms:
+
+  - Attribution — You must give appropriate credit to Md Abulkalam Azad,
+    provide a link to this license, and indicate if changes were made.
+    You may do so in any reasonable manner, but not in any way that
+    suggests the licensor endorses you or your use.
+
+  - NonCommercial — You may not use the material for commercial purposes.
+    See the commercial licensing note above for how to obtain a separate
+    agreement for commercial use.
+
+  - No additional restrictions — You may not apply legal terms or
+    technological measures that legally restrict others from doing
+    anything the license permits.
+
+Notices:
+
+  You do not have to comply with the license for elements of the material
+  in the public domain or where your use is permitted by an applicable
+  exception or limitation. No warranties are given. The license may not
+  give you all of the permissions necessary for your intended use. For
+  example, other rights such as publicity, privacy, or moral rights may
+  limit how you use the material.
+
+No Liability
+
+  As far as the law allows, the software and model weights come as is,
+  without any warranty or condition, and the licensor will not be liable
+  to you for any damages arising out of these terms or the use or nature
+  of the software or model weights, under any kind of legal claim.
+
+---
+
+Third-Party Components
+=======================
+
+This project includes components licensed under the Apache License 2.0, the
+MIT License, and the BSD 3-Clause License. These components are subject to
+the following terms:
+
+Apache License, Version 2.0
+---------------------------
+
+Copyright (c) [TAPIR]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+MIT License (PIPs — https://github.com/aharley/pips)
+------------------------------------------------------
+
+Applies to: `utils/basic.py`, `utils/samp.py`, `utils/saverloader.py`, and
+in part `model/blocks.py` and `utils/trainer.py`.
+
+Copyright (c) 2022 Adam W. Harley
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,26 +150,37 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
----
+BSD 3-Clause License (RAFT — https://github.com/princeton-vl/RAFT)
+----------------------------------------------------------------------
 
-Third-Party Components
-=======================
+Applies to: the `BasicEncoder` / `CorrBlock` components in `model/blocks.py`
+and the `sequence_loss` function in `utils/trainer.py`, adapted via PIPs.
 
-This project includes components licensed under the Apache License 2.0. These components are subject to the following terms:
+Copyright (c) 2020, princeton-vl
+All rights reserved.
 
-Apache License, Version 2.0
----------------------------
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
 
-Copyright (c) [TAPIR]
+1. Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at:
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
 
-    http://www.apache.org/licenses/LICENSE-2.0
+3. Neither the name of the copyright holder nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.

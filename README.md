@@ -22,7 +22,7 @@ If you find this work useful, please consider giving the repository a ⭐ — it
   </a>
   &nbsp;
   <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT%20%2F%20Apache%202.0-lightgrey?style=flat-square" alt="License">
+    <img src="https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey?style=flat-square" alt="License">
   </a>
 </p>
 
@@ -86,6 +86,8 @@ Download each checkpoint and place the file in the corresponding directory befor
 >
 > This version achieves best performance when query points are selected from the frame located at approximately **72% of the video's time dimension** — corresponding to **diastasis** (the quiescent slow-filling phase between the E-wave and A-wave) in a full ED-to-ED cardiac cycle (e.g. frame 72 of a 100-frame sequence).
 > If you use this model, please also cite that paper — see the [Citation](#citation) section.
+
+All checkpoints above (including the fine-tuned TAPIR checkpoint) are released under the same [CC BY-NC 4.0](#license) license as the EchoTracker code — see [License](#license) for details. If you use other pretrained models alongside this project (e.g., a base TAPIR checkpoint from its original source), check that model's own licensing terms separately.
 
 ---
 
@@ -226,7 +228,11 @@ This project uses a dual-license structure due to third-party code inclusion.
 
 | Component | License |
 |---|---|
-| EchoTracker (original code) | [MIT License](LICENSE) |
-| TAPIR integration ([source](https://github.com/google-deepmind/tapnet)) | [Apache License 2.0](LICENSE) |
+| EchoTracker (original code and model weights/checkpoints) | [CC BY-NC 4.0](LICENSE) |
+| TAPIR integration code ([source](https://github.com/google-deepmind/tapnet)) | [Apache License 2.0](LICENSE) |
+
+**EchoTracker's original code and model weights are free to use for noncommercial purposes only** (e.g., academic research, education, personal projects), with attribution. This covers all checkpoints released from this repository, including the fine-tuned TAPIR checkpoint produced by this project — see [Model Checkpoints](#model-checkpoints). Commercial use is not permitted under this license. If you wish to use EchoTracker's code or weights for commercial purposes, you must obtain a separate commercial license agreement. Commercial licensing is handled by [NTNU Technology Transfer AS (NTNU TTO)](https://ntnuto.no) — you can reach out to them directly, or contact [md.a.azad@ntnu.no](mailto:md.a.azad@ntnu.no) or [andreas.ostvik@ntnu.no](mailto:andreas.ostvik@ntnu.no), who will coordinate with NTNU TTO.
+
+If you use other, third-party pretrained models alongside this project (e.g., a base TAPIR checkpoint from its original source), check that model's own license terms separately — they are not covered by EchoTracker's license.
 
 When using this project, retain the respective license notices for each component. See the `LICENSE` file for full terms.

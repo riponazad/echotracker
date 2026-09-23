@@ -1,3 +1,7 @@
+# This file is adapted from PIPs (https://github.com/aharley/pips,
+# MIT License, Copyright (c) 2022 Adam W. Harley). See the LICENSE file at
+# the root of this repository for the full license text.
+
 import torch
 import os, pathlib
 import numpy as np

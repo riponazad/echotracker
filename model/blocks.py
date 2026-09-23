@@ -1,3 +1,10 @@
+# The BasicEncoder / CorrBlock components in this file are adapted from
+# PIPs (https://github.com/aharley/pips, MIT License, Copyright (c) 2022
+# Adam W. Harley), which in turn adapted them from RAFT
+# (https://github.com/princeton-vl/RAFT, BSD 3-Clause License, Copyright (c)
+# 2020, princeton-vl). See the LICENSE file at the root of this repository
+# for the full license texts.
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F

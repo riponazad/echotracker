@@ -1,3 +1,10 @@
+# The sequence_loss function in this file is adapted from PIPs
+# (https://github.com/aharley/pips, MIT License, Copyright (c) 2022 Adam W.
+# Harley), which in turn adapted it from RAFT
+# (https://github.com/princeton-vl/RAFT, BSD 3-Clause License, Copyright (c)
+# 2020, princeton-vl). See the LICENSE file at the root of this repository
+# for the full license texts.
+
 import numpy as np
 import torch
 import torch.nn.functional as F
