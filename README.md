@@ -87,7 +87,7 @@ Download each checkpoint and place the file in the corresponding directory befor
 > This version achieves best performance when query points are selected from the frame located at approximately **72% of the video's time dimension** — corresponding to **diastasis** (the quiescent slow-filling phase between the E-wave and A-wave) in a full ED-to-ED cardiac cycle (e.g. frame 72 of a 100-frame sequence).
 > If you use this model, please also cite that paper — see the [Citation](#citation) section.
 
-All checkpoints above (including the fine-tuned TAPIR checkpoint) are released under the same [CC BY-NC 4.0](#license) license as the EchoTracker code — see [License](#license) for details. If you use other pretrained models alongside this project (e.g., a base TAPIR checkpoint from its original source), check that model's own licensing terms separately.
+**Explicit noncommercial notice:** the trained weights for every model above that was trained or fine-tuned on our ultrasound data — the EchoTracker checkpoint and the fine-tuned TAPIR checkpoint alike — are released under the same [CC BY-NC 4.0](#license) license as the EchoTracker code, for **noncommercial use only**, regardless of whether the underlying architecture originates elsewhere. Commercial use requires a separate agreement; see [License](#license) for how to contact NTNU TTO. If you use other pretrained models alongside this project (e.g., a base TAPIR checkpoint from its original source), check that model's own licensing terms separately.
 
 ---
 
@@ -228,10 +228,11 @@ This project uses a dual-license structure due to third-party code inclusion.
 
 | Component | License |
 |---|---|
-| EchoTracker (original code and model weights/checkpoints) | [CC BY-NC 4.0](LICENSE) |
+| EchoTracker (original code) | [CC BY-NC 4.0](LICENSE) |
+| All model weights/checkpoints trained on our ultrasound data (EchoTracker checkpoint, fine-tuned TAPIR checkpoint) | [CC BY-NC 4.0](LICENSE) |
 | TAPIR integration code ([source](https://github.com/google-deepmind/tapnet)) | [Apache License 2.0](LICENSE) |
 
-**EchoTracker's original code and model weights are free to use for noncommercial purposes only** (e.g., academic research, education, personal projects), with attribution. This covers all checkpoints released from this repository, including the fine-tuned TAPIR checkpoint produced by this project — see [Model Checkpoints](#model-checkpoints). Commercial use is not permitted under this license. If you wish to use EchoTracker's code or weights for commercial purposes, you must obtain a separate commercial license agreement. Commercial licensing is handled by [NTNU Technology Transfer AS (NTNU TTO)](https://ntnuto.no) — you can reach out to them directly, or contact [md.a.azad@ntnu.no](mailto:md.a.azad@ntnu.no) or [andreas.ostvik@ntnu.no](mailto:andreas.ostvik@ntnu.no), who will coordinate with NTNU TTO.
+**Explicit noncommercial notice:** EchoTracker's original code, and the trained weights of every model in this repository that was trained or fine-tuned on our ultrasound data, are free to use for noncommercial purposes only (e.g., academic research, education, personal projects), with attribution. This applies without exception to all checkpoints released from this repository — the EchoTracker checkpoint and the fine-tuned TAPIR checkpoint alike, see [Model Checkpoints](#model-checkpoints) — regardless of whether a given model's underlying architecture originates from a third party. **Commercial use is not permitted under this license.** If you wish to use EchoTracker's code or any of these model weights for commercial purposes, you must obtain a separate commercial license agreement. Commercial licensing is handled by [NTNU Technology Transfer AS (NTNU TTO)](https://ntnuto.no) — you can reach out to them directly, or contact [md.a.azad@ntnu.no](mailto:md.a.azad@ntnu.no) or [andreas.ostvik@ntnu.no](mailto:andreas.ostvik@ntnu.no), who will coordinate with NTNU TTO.
 
 If you use other, third-party pretrained models alongside this project (e.g., a base TAPIR checkpoint from its original source), check that model's own license terms separately — they are not covered by EchoTracker's license.
 

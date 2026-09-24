@@ -3,18 +3,24 @@ EchoTracker License
 
 This project uses a dual-license structure.
 
-1. The original EchoTracker code AND the original EchoTracker model weights
-   / checkpoints produced by this project (everything in this repository
-   except the third-party components listed below) are licensed for
-   NONCOMMERCIAL USE ONLY under the Creative Commons Attribution-
-   NonCommercial 4.0 International License (CC BY-NC 4.0), summarized and
-   linked below. This includes any fine-tuned checkpoints hosted or
-   distributed from this repository (e.g., the fine-tuned TAPIR checkpoint
-   produced by this project), even where the underlying model architecture
-   or base pretrained weights originate from a third party.
+1. The original EchoTracker code (everything in this repository except the
+   third-party components listed below) is licensed for NONCOMMERCIAL USE
+   ONLY under the Creative Commons Attribution-NonCommercial 4.0
+   International License (CC BY-NC 4.0), summarized and linked below.
+
+2. MODEL WEIGHTS — EXPLICIT NONCOMMERCIAL NOTICE: The trained model
+   weights/checkpoints for ALL models released from this repository that
+   were produced by training or fine-tuning on our ultrasound (US)
+   echocardiography data are licensed for NONCOMMERCIAL USE ONLY under the
+   same CC BY-NC 4.0 license as the code. This explicitly includes, without
+   limitation, the EchoTracker checkpoint and the fine-tuned TAPIR
+   checkpoint distributed in this repository — every checkpoint here that
+   resulted from training on our ultrasound data is noncommercial-only,
+   regardless of whether that model's underlying architecture or base
+   pretrained weights originate from a third party.
 
    COMMERCIAL USE IS NOT PERMITTED UNDER THIS LICENSE. Any use of this
-   software or these model weights, or works derived from them, for
+   software or any of these model weights, or works derived from them, for
    commercial purposes requires a separate commercial license agreement.
    Commercial licensing is handled by NTNU Technology Transfer AS (NTNU
    TTO, https://ntnuto.no). To start that process, please contact NTNU TTO
@@ -22,18 +28,18 @@ This project uses a dual-license structure.
    Andreas Østvik (andreas.ostvik@ntnu.no), who will coordinate with NTNU
    TTO on your behalf.
 
-2. Certain components are derived from or integrate with TAPIR
+3. Certain components are derived from or integrate with TAPIR
    (https://github.com/google-deepmind/tapnet) and remain subject to the
    Apache License, Version 2.0, as reproduced further below.
 
-3. Certain utility and model files are adapted from PIPs
+4. Certain utility and model files are adapted from PIPs
    (https://github.com/aharley/pips, MIT License) and, in part, from RAFT
    (https://github.com/princeton-vl/RAFT, BSD 3-Clause License), and remain
    subject to those licenses as reproduced further below. This includes
    `model/blocks.py`, `utils/basic.py`, `utils/samp.py`,
    `utils/saverloader.py`, and `utils/trainer.py`.
 
-4. This repository builds on or references other third-party models (for
+5. This repository builds on or references other third-party models (for
    example, the base pretrained TAPIR model). Those models' own code and
    weights are NOT covered by the CC BY-NC 4.0 license above and remain
    subject to their original authors' license terms. Please check the
